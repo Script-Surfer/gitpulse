@@ -1,0 +1,143 @@
+/* ---------- Repo Dashboard ---------- */
+
+/* Header */
+.repo-header {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.repo-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.repo-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.repo-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--border-color);
+}
+
+.repo-name {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.repo-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+  max-width: 500px;
+}
+
+.repo-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* Stats Row */
+.repo-stats {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.chart-card {
+  padding: var(--space-xl);
+}
+
+.chart-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.chart-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.chart-body {
+  min-height: 250px;
+}
+
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-xl);
+  text-align: center;
+  gap: var(--space-sm);
+  color: var(--text-secondary);
+}
+
+.chart-placeholder .text-muted {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* Full-width heatmap */
+.charts-grid .chart-card:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .repo-header-top {
+    flex-direction: column;
+  }
+  .repo-actions {
+    width: 100%;
+  }
+  .repo-actions .btn {
+    flex: 1;
+  }
+}
