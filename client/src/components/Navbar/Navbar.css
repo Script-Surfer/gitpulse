@@ -1,4 +1,4 @@
-/* ---------- Navbar ---------- */
+/* ---------- Navbar — Liquid Glass ---------- */
 .navbar {
   position: fixed;
   top: 0;
@@ -6,10 +6,28 @@
   right: 0;
   height: var(--navbar-height);
   z-index: 100;
-  background: rgba(15, 15, 35, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
+  background: rgba(6, 7, 10, 0.7);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Subtle bottom glow line */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(16, 185, 129, 0.2),
+    rgba(245, 158, 11, 0.1),
+    transparent
+  );
+  pointer-events: none;
 }
 
 .navbar-inner {
@@ -22,19 +40,21 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 10px;
   font-size: var(--font-size-xl);
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--text-bright);
   text-decoration: none;
+  letter-spacing: -0.02em;
 }
 
 .navbar-brand:hover {
-  color: var(--text-primary);
+  color: var(--text-bright);
 }
 
 .brand-icon {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
 }
 
 .brand-text {
@@ -47,29 +67,32 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 4px;
 }
 
 .nav-link {
-  padding: var(--space-xs) var(--space-md);
+  padding: 6px 14px;
   font-size: var(--font-size-sm);
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   border-radius: var(--border-radius-md);
   transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  letter-spacing: 0.01em;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
-  background: rgba(99, 102, 241, 0.08);
+  background: rgba(16, 185, 129, 0.05);
+  border-color: var(--border-subtle);
 }
 
 @media (max-width: 768px) {
   .navbar-links {
-    gap: var(--space-xs);
+    gap: 2px;
   }
   .nav-link {
     font-size: var(--font-size-xs);
-    padding: var(--space-xs) var(--space-sm);
+    padding: 4px 8px;
   }
 }

@@ -1,9 +1,21 @@
-/* ---------- Auth Pages (Login & Register) ---------- */
+/* ---------- Auth Pages — Liquid Glass ---------- */
 .auth-container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - var(--navbar-height) - 100px);
+  position: relative;
+}
+
+/* Ambient glow behind card */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .auth-card {
@@ -20,11 +32,9 @@
 .auth-header h1 {
   font-size: var(--font-size-2xl);
   font-weight: 800;
-  background: linear-gradient(135deg, var(--text-primary), var(--color-primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--space-xs);
+  color: var(--text-bright);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
 }
 
 .auth-header p {
@@ -48,4 +58,13 @@
   margin-top: var(--space-lg);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--color-primary-light);
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  color: var(--color-accent-light);
 }

@@ -1,4 +1,4 @@
-/* ---------- My Repos Page ---------- */
+/* ---------- My Repos Page — Liquid Glass ---------- */
 .repos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -24,18 +24,21 @@
   width: 40px;
   height: 40px;
   border-radius: var(--border-radius-sm);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.08);
 }
 
 .repo-card-name {
   font-size: var(--font-size-base);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-bright);
+  font-family: var(--font-mono);
 }
 
 .repo-card-date {
   font-size: var(--font-size-xs);
   color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .repo-card-stats {
@@ -43,6 +46,7 @@
   gap: var(--space-md);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+  font-family: var(--font-mono);
 }
 
 .repo-card-remove {
@@ -54,17 +58,24 @@
 /* Empty State */
 .empty-state {
   text-align: center;
-  padding: var(--space-3xl);
+  padding: var(--space-4xl) var(--space-xl);
   color: var(--text-secondary);
 }
 
 .empty-icon {
-  font-size: 3rem;
-  margin-bottom: var(--space-md);
+  font-size: 3.5rem;
+  margin-bottom: var(--space-lg);
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.15));
 }
 
 .empty-state h3 {
   font-size: var(--font-size-xl);
-  color: var(--text-primary);
+  color: var(--text-bright);
   margin-bottom: var(--space-sm);
+}
+
+.empty-state p {
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.7;
 }

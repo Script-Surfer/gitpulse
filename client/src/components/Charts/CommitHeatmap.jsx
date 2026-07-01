@@ -15,6 +15,11 @@
  *   - Add tooltip on hover showing exact commit count per day
  */
 
+import CalenderHeatmap from 'react-calendar-heatmap';
+import 'react-calendar-heatmap/dist/styles.css';
+import { Tooltip } from 'react-tooltip';
+
+
 const CommitHeatmap = ({ data = [] }) => {
   return (
     <div className="commit-heatmap">

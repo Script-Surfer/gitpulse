@@ -1,4 +1,4 @@
-/* ---------- Settings Page ---------- */
+/* ---------- Settings Page — Liquid Glass ---------- */
 .settings-grid {
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 .settings-card-title {
   font-size: var(--font-size-lg);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-bright);
   margin-bottom: var(--space-lg);
 }
 
@@ -22,7 +22,7 @@
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   margin-bottom: var(--space-lg);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .settings-form {
@@ -38,6 +38,13 @@
 }
 
 .profile-info .input:disabled {
-  opacity: 0.6;
+  opacity: 0.45;
   cursor: not-allowed;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.settings-form .input[type="password"] {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
 }
