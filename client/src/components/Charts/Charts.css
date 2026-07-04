@@ -1,0 +1,251 @@
+/* ---------- Charts — Shared Styles ---------- */
+
+/* ===== Commit Heatmap ===== */
+.commit-heatmap {
+  position: relative;
+}
+
+.commit-heatmap .react-calendar-heatmap {
+  width: 100%;
+}
+
+/* Base cell styling */
+.commit-heatmap .react-calendar-heatmap rect.color-empty {
+  fill: rgba(255, 255, 255, 0.03);
+  rx: 2;
+  ry: 2;
+}
+
+.commit-heatmap .react-calendar-heatmap rect.color-scale-1 {
+  fill: rgba(16, 185, 129, 0.2);
+  rx: 2;
+  ry: 2;
+}
+
+.commit-heatmap .react-calendar-heatmap rect.color-scale-2 {
+  fill: rgba(16, 185, 129, 0.4);
+  rx: 2;
+  ry: 2;
+}
+
+.commit-heatmap .react-calendar-heatmap rect.color-scale-3 {
+  fill: rgba(16, 185, 129, 0.65);
+  rx: 2;
+  ry: 2;
+}
+
+.commit-heatmap .react-calendar-heatmap rect.color-scale-4 {
+  fill: rgba(16, 185, 129, 0.9);
+  rx: 2;
+  ry: 2;
+}
+
+/* Heatmap text labels */
+.commit-heatmap .react-calendar-heatmap text {
+  fill: var(--text-muted);
+  font-size: 10px;
+  font-family: var(--font-mono);
+}
+
+/* Heatmap legend */
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: var(--space-md);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.heatmap-legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* ===== Contributor Table ===== */
+.contributor-table {
+  width: 100%;
+}
+
+.contributor-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 10px var(--space-md);
+  border-radius: var(--border-radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.contributor-row:hover {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.contributor-row + .contributor-row {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contributor-rank {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.contributor-rank.top-3 {
+  color: var(--color-accent);
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+.contributor-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-default);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.08);
+}
+
+.contributor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.contributor-login {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-bright);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contributor-commits {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.contributor-bar-wrap {
+  flex: 1;
+  max-width: 160px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.contributor-bar {
+  height: 100%;
+  border-radius: var(--border-radius-full);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
+
+.contributor-pct {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  width: 44px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ===== Recharts Theme Overrides ===== */
+.recharts-cartesian-grid line {
+  stroke: rgba(255, 255, 255, 0.04);
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-muted) !important;
+  font-size: 11px !important;
+  font-family: var(--font-mono) !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  font-family: var(--font-mono) !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Custom recharts tooltip */
+.chart-tooltip {
+  background: var(--glass-bg-solid) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--border-radius-md) !important;
+  padding: 10px 14px !important;
+  box-shadow: var(--shadow-lg), var(--shadow-glow-primary) !important;
+}
+
+.chart-tooltip .recharts-tooltip-label {
+  color: var(--text-bright) !important;
+  font-weight: 600 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  margin-bottom: 6px !important;
+}
+
+.chart-tooltip .recharts-tooltip-item {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  padding: 2px 0 !important;
+}
+
+/* Language pie chart container */
+.language-pie-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+/* Velocity line chart container */
+.velocity-line-chart {
+  min-height: 280px;
+}
+
+/* ===== No Data States ===== */
+.chart-no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  gap: var(--space-sm);
+}
+
+.chart-no-data-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* ===== React Tooltip Overrides ===== */
+.heatmap-tooltip {
+  background: var(--glass-bg-solid) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--border-radius-sm) !important;
+  padding: 6px 12px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-md) !important;
+  opacity: 1 !important;
+  z-index: 1000 !important;
+}

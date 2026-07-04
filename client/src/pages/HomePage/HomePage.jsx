@@ -1,8 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { getSearchHistory } from '../../api/api.js';
 import './HomePage.css';
+
+const FEATURES = [
+  {
+    icon: '📊',
+    title: 'Commit Heatmap',
+    description: 'Visualise 12 months of commit activity in a GitHub-style heatmap with daily granularity.',
+  },
+  {
+    icon: '👥',
+    title: 'Contributor Leaderboard',
+    description: 'See the top 10 contributors ranked by commits with percentage breakdowns.',
+  },
+  {
+    icon: '🎨',
+    title: 'Language Breakdown',
+    description: 'Interactive donut chart showing the language composition by bytes of code.',
+  },
+  {
+    icon: '⚡',
+    title: 'Compare Repos',
+    description: 'Put two repositories side by side to compare stats, languages, and contributors.',
+  },
+];
 
 const HomePage = () => {
   const { user } = useAuth();
@@ -10,10 +33,21 @@ const HomePage = () => {
   const [repoInput, setRepoInput] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  // TODO: Fetch recent searches on mount if user is logged in
-  // useEffect(() => { if (user) { fetch history and set state } }, [user]);
   const [recentSearches, setRecentSearches] = useState([]);
+
+  // Fetch recent searches on mount if user is logged in
+  useEffect(() => {
+    const fetchHistory = async () => {
+      if (!user) return;
+      try {
+        const { data } = await getSearchHistory();
+        setRecentSearches(data);
+      } catch {
+        // Silently fail — not critical
+      }
+    };
+    fetchHistory();
+  }, [user]);
 
   /**
    * Validates and parses the repo input.
@@ -108,14 +142,21 @@ const HomePage = () => {
           </section>
         )}
 
-        {/* TODO: Add feature cards section below to showcase capabilities */}
-        {/* 
-          Feature ideas:
-          - Commit Heatmap preview
-          - Contributor Leaderboard preview
-          - Language Pie Chart preview
-          - Compare Repos preview
-        */}
+        {/* Feature Cards */}
+        <section className="features-section" id="features">
+          <h2 className="features-heading">
+            Everything you need to understand a repo
+          </h2>
+          <div className="features-grid stagger-children">
+            {FEATURES.map((feature) => (
+              <div key={feature.title} className="feature-card glass-card">
+                <span className="feature-icon">{feature.icon}</span>
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-desc">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
