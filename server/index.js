@@ -38,8 +38,6 @@ const corsOptions = {
     credentials: true,
 };
 
-// Handle preflight OPTIONS requests explicitly (required for Express 5)
-app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
 app.use(express.json());
