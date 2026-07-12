@@ -28,7 +28,7 @@ export const getOrFetchRepo = async (owner, name, forceRefresh = false, userToke
 
     // Step 1: Check cache
     if (!forceRefresh) {
-        const cached = await CachedRepo.findOne({ fullName });
+        const cached = await CachedRepo.findOne({ fullName }).lean();
         if (cached) {
             const age = Date.now() - new Date(cached.fetchedAt).getTime();
             if (age < CACHE_DURATION_MS) {
@@ -72,7 +72,7 @@ export const getOrFetchRepo = async (owner, name, forceRefresh = false, userToke
     const cachedRepo = await CachedRepo.findOneAndUpdate(
         { fullName },
         repoData,
-        { upsert: true, new: true, setDefaultsOnInsert: true }
+        { upsert: true, new: true, setDefaultsOnInsert: true, lean: true }
     );
 
     return cachedRepo;

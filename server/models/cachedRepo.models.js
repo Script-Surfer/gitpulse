@@ -23,10 +23,10 @@ const cachedRepoSchema = new mongoose.Schema({
     license: String,
     lastUpdated: Date,
     languages: {
-        type: Map,
-        of: Number
+        type: mongoose.Schema.Types.Mixed,
+        default: {}
     },
-    commitActivity: [{ week: Number, total: Number }],
+    commitActivity: [{ week: Number, total: Number, days: [Number] }],
     contributors: [{ login: String, avatarUrl: String, commits: Number }],
     issueVelocity: [{ month: String, opened: Number, closed: Number }],
     prVelocity: [{ month: String, opened: Number, merged: Number }],
